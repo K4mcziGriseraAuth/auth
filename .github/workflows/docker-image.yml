@@ -25,7 +25,7 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
       # This is used to complete the identity challenge
       # with sigstore/fulcio when running outside of PRs.
@@ -60,7 +60,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: ${{ github.ref_name }}
-          DEFAULT_BUMP: minor
+          DEFAULT_BUMP: patch
           WITH_V: true
 
       # Extract metadata (tags, labels) for Docker
