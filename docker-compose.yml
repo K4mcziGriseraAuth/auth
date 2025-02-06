@@ -1,5 +1,8 @@
 version: "3.9" # optional since v1.27.0
 services:
+  test:
+    image: ghcr.io/k4mczigriseraauth/auth:2.1.1
+
   keycloak-test:
     build:
       context: .
