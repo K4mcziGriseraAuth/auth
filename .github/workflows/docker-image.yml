@@ -65,8 +65,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: ${{ github.ref_name }}
           DEFAULT_BUMP: patch
+          INITIAL_VERSION: 2.8.0
           WITH_V: true
-          RELEASE_BRANCHES: "development_2.1"
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
