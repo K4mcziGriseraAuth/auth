@@ -97,6 +97,6 @@ jobs:
           context: .
           file: keycloak2.dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-my-keycloak:0.0.1
+          tags: kamczi/my-keycloak:0.0.1
           labels: ${{ steps.meta.outputs.labels }}
 
