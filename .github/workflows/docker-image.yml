@@ -107,4 +107,5 @@ jobs:
           context: .
           file: keycloak2.dockerfile
           push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta2.outputs.tags }}
           labels: ${{ steps.meta2.outputs.labels }}
