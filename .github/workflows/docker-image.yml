@@ -96,5 +96,5 @@ jobs:
         with:
           context: .
           file: keycloak2.dockerfile
-          push: ${{ github.event_name != 'pull_request' }}
+          push: ${{ env.REGISTRY }}/${{ github.event_name != 'pull_request' }}
           tags: k4mczigriseraauth/keycloak:2.1.100
