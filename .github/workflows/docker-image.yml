@@ -83,20 +83,18 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: keycloak2.dockerfile
+          file: keycloak.dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
-#      - name: Build and push Docker image
-#        id: build-and-push2
-#        uses: docker/build-push-action@v5
-#        with:
-#          context: .
-#          file: keycloak2.dockerfile
-#          push: ${{ github.event_name != 'pull_request' }}
-#          tags: ${{ env.REGISTRY }}/kamczi-keycloak
-#          labels: ${{ steps.meta.outputs.labels }}
-
+      - name: Build and push Docker image
+        id: build-and-push2
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: keycloak2.dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: k4mczigriseraauth/keycloak:2.1.100
