@@ -1,11 +1,11 @@
-FROM quay.io/keycloak/keycloak:26.0.5 AS BUILDER
+FROM quay.io/keycloak/keycloak:26.0.5 AS builder
 
 WORKDIR /opt/keycloak
 
 RUN /opt/keycloak/bin/kc.sh build
 
 FROM quay.io/keycloak/keycloak:latest
-COPY --from=BUILDER /opt/keycloak/ /opt/keycloak/
+COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
 COPY keycloak/themes/grisera/ /opt/keycloak/themes/grisera
 COPY keycloak/realm-config /opt/keycloak/data/import
