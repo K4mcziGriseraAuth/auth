@@ -17,7 +17,7 @@ env:
   # Use docker.io for Docker Hub if empty test
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: my-auth
+  IMAGE_NAME: ${{ github.repository }}
 
 
 jobs:
@@ -86,5 +86,5 @@ jobs:
           context: .
           file: keycloak.dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:2.1-latest
+          tags: ${{ steps.meta.outputs.tags }}, ${{ env.REGISTRY }}//k4mczigriseraauth/auth-keycloak:2.1-latest
           labels: ${{ steps.meta.outputs.labels }}
